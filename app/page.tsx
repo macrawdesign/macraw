@@ -38,37 +38,37 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Directional Mouse-Tracking Edge Glow */}
+      {/* Hero Section with Extra Large Logo & Directional Mouse-Tracking Edge Glow */}
       <main className="pt-20 flex flex-col items-center justify-center min-h-screen relative overflow-hidden z-10 px-4">
-        <div className="relative z-10 flex flex-col items-center justify-center">
+        <div className="relative z-10 flex flex-col items-center justify-center w-full">
           <div
             ref={divRef}
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="relative cursor-pointer p-16 flex items-center justify-center group"
+            className="relative cursor-pointer p-8 md:p-16 flex items-center justify-center group w-full max-w-5xl"
           >
             {/* Directional Grainy Light Beam following mouse proximity to logo edges */}
             <div
-              className="absolute pointer-events-none rounded-full blur-2xl transition-opacity duration-500"
+              className="absolute pointer-events-none rounded-full blur-3xl transition-opacity duration-500"
               style={{
-                width: '320px',
-                height: '320px',
-                background: 'radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.08) 60%, transparent 85%)',
-                left: `${cursorPos.x - 160}px`,
-                top: `${cursorPos.y - 160}px`,
+                width: '450px',
+                height: '450px',
+                background: 'radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 60%, transparent 85%)',
+                left: `${cursorPos.x - 225}px`,
+                top: `${cursorPos.y - 225}px`,
                 opacity: isHovered ? 1 : 0,
               }}
             />
 
-            {/* Extra Large Center Logo matching Vercel Aesthetic */}
+            {/* Extra Large Center Logo */}
             <motion.img
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               src="/macraw-logo.png"
               alt="Macraw Logo"
-              className="relative h-72 md:h-[420px] w-auto object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.25)] transition-all duration-300"
+              className="relative h-80 md:h-[550px] w-auto object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.25)] transition-all duration-300"
             />
           </div>
         </div>
