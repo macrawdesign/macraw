@@ -4,14 +4,14 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Home() {
-  const divRef = useRef<HTMLDivElement>(null);
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!divRef.current) return;
-    const rect = divRef.current.getBoundingClientRect();
-    setCursorPos({
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    setMousePos({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
     });
@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-neutral-800 selection:text-white relative overflow-hidden">
       {/* Grainy Noise Dot Texture Background */}
-      <div className="absolute inset-0 opacity-[0.05] pointer-events-none z-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]" />
+      <div className="absolute inset-0 opacity-[0.06] pointer-events-none z-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" />
 
       {/* Header / Navbar */}
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-neutral-950/80 border-b border-neutral-800/50">
@@ -38,25 +38,25 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Extra Large Logo & Directional Mouse-Tracking Edge Glow */}
+      {/* Hero Section with Precise Mouse-Proximity Grainy Glow */}
       <main className="pt-20 flex flex-col items-center justify-center min-h-screen relative overflow-hidden z-10 px-4">
         <div className="relative z-10 flex flex-col items-center justify-center w-full">
           <div
-            ref={divRef}
+            ref={containerRef}
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="relative cursor-pointer p-8 md:p-16 flex items-center justify-center group w-full max-w-5xl"
+            className="relative cursor-pointer p-10 md:p-20 flex items-center justify-center group"
           >
-            {/* Directional Grainy Light Beam following mouse proximity to logo edges */}
+            {/* Dynamic Grainy Light Spotlight following mouse near edges */}
             <div
-              className="absolute pointer-events-none rounded-full blur-3xl transition-opacity duration-500"
+              className="absolute pointer-events-none rounded-full blur-2xl transition-opacity duration-300 mix-blend-screen"
               style={{
-                width: '450px',
-                height: '450px',
-                background: 'radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 60%, transparent 85%)',
-                left: `${cursorPos.x - 225}px`,
-                top: `${cursorPos.y - 225}px`,
+                width: '380px',
+                height: '380px',
+                background: 'radial-gradient(circle, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.12) 55%, transparent 80%)',
+                left: `${mousePos.x - 190}px`,
+                top: `${mousePos.y - 190}px`,
                 opacity: isHovered ? 1 : 0,
               }}
             />
@@ -68,7 +68,7 @@ export default function Home() {
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               src="/macraw-logo.png"
               alt="Macraw Logo"
-              className="relative h-80 md:h-[550px] w-auto object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.25)] transition-all duration-300"
+              className="relative h-80 md:h-[580px] w-auto object-contain filter drop-shadow-[0_0_60px_rgba(255,255,255,0.2)] transition-all duration-300"
             />
           </div>
         </div>
