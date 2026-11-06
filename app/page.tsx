@@ -21,9 +21,6 @@ export default function Home() {
       <main className="max-w-full mx-auto px-6 pt-36 pb-24 space-y-32">
         {/* Hero Section */}
         <section className="space-y-6 max-w-3xl">
-          <div className="inline-block px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400 font-mono tracking-wide">
-            Graphic Design & Visual Brand Identity
-          </div>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
             Crafting bold visual experiences and aesthetic brand spaces.
           </h1>
