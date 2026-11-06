@@ -1,6 +1,5 @@
-'client';
+'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function Home() {
@@ -8,9 +7,9 @@ export default function Home() {
     <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-neutral-800 selection:text-white">
       {/* Header / Navbar */}
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-neutral-950/80 border-b border-neutral-800/50">
-        <div className="max-w-full mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-full mx-auto px-8 h-20 flex items-center justify-between">
           <a href="#">
-            <img src="/logo.png" alt="The Macraw Logo" className="h-30 w-auto" />
+            <img src="/logo.png" alt="The Macraw Logo" className="h-8 w-auto object-contain" />
           </a>
 
           <nav className="flex items-center gap-8 text-sm text-neutral-400 font-medium">
@@ -22,27 +21,27 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Glowing Animated Center Logo */}
-      <main className="max-w-full mx-auto px-6 pt-36 pb-24 space-y-32 flex flex-col items-center justify-center min-h-screen relative overflow-hidden">
-        {/* Background Soft Glow Effect */}
+      {/* Hero Section with Center Glowing Animated Logo */}
+      <main className="pt-32 pb-24 flex flex-col items-center justify-center min-h-[85vh] relative overflow-hidden">
+        {/* Background Soft Radial Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/10 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="relative z-10 flex flex-col items-center justify-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
-            whileHover={{ scale: 1.05 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ scale: 1.08 }}
             className="relative group cursor-pointer"
           >
             {/* Logo Hover Glow Effect */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-white/20 via-white/40 to-white/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-700 ease-out" />
+            <div className="absolute -inset-8 bg-gradient-to-r from-white/30 via-white/50 to-white/30 rounded-full blur-2xl opacity-40 group-hover:opacity-100 transition duration-700 ease-out animate-pulse" />
             
-            {/* Macraw Center Logo */}
+            {/* Macraw Center Logo Image */}
             <img
-              src="/Macraw Logo.png"
+              src="/macraw-logo.png"
               alt="Macraw Logo"
-              className="relative h-40 md:h-56 w-auto object-contain filter drop-shadow-[0_0_30px_rgba(255,255,255,0.25)] transition duration-500"
+              className="relative h-44 md:h-60 w-auto object-contain filter drop-shadow-[0_0_40px_rgba(255,255,255,0.35)] transition duration-500"
             />
           </motion.div>
         </div>
