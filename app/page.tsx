@@ -38,7 +38,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Vercel Mouse-Tracking Spotlight Glow */}
+      {/* Hero Section with Vercel Masked Spotlight Glow */}
       <main className="pt-20 flex flex-col items-center justify-center min-h-screen relative overflow-hidden z-10 px-4">
         <div className="relative z-10 flex flex-col items-center justify-center w-full">
           <div
@@ -48,28 +48,44 @@ export default function Home() {
             onMouseLeave={() => setIsHovered(false)}
             className="relative cursor-pointer py-24 px-16 flex items-center justify-center group"
           >
-            {/* Mouse-following grainy spotlight glow */}
-            <div
-              className="absolute pointer-events-none rounded-full blur-3xl transition-opacity duration-300 mix-blend-screen"
-              style={{
-                width: '350px',
-                height: '350px',
-                background: 'radial-gradient(circle, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.12) 55%, transparent 80%)',
-                left: `${mousePos.x - 175}px`,
-                top: `${mousePos.y - 175}px`,
-                opacity: isHovered ? 1 : 0,
-              }}
-            />
-
-            {/* Extra Large Center Logo */}
+            {/* Base Logo (Dimmed) */}
             <motion.img
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               src="/macraw-logo.png"
               alt="Macraw Logo"
-              className="relative h-80 md:h-[580px] w-auto object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.22)] transition-all duration-300"
+              className="relative h-80 md:h-[580px] w-auto object-contain opacity-40 filter drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]"
             />
+
+            {/* Glowing Layer Masked strictly to the Logo Shape */}
+            <div
+              className="absolute inset-0 pointer-events-none flex items-center justify-center transition-opacity duration-300"
+              style={{
+                opacity: isHovered ? 1 : 0,
+                WebkitMaskImage: 'url(/macraw-logo.png)',
+                maskImage: 'url(/macraw-logo.png)',
+                WebkitMaskRepeat: 'no-repeat',
+                maskRepeat: 'no-repeat',
+                WebkitMaskPosition: 'center',
+                maskPosition: 'center',
+                WebkitMaskSize: 'contain',
+                maskSize: 'contain',
+              }}
+            >
+              {/* Mouse-following Spotlight Gradient inside the logo mask */}
+              <div
+                className="absolute inset-0 w-full h-full"
+                style={{
+                  background: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255,255,255,1) 0%, rgba(255,255,255,0.4) 40%, transparent 80%)`,
+                }}
+              />
+              <img
+                src="/macraw-logo.png"
+                alt="Macraw Logo Glow"
+                className="h-80 md:h-[580px] w-auto object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.9)]"
+              />
+            </div>
           </div>
         </div>
       </main>
