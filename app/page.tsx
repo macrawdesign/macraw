@@ -10,7 +10,7 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-neutral-950/80 border-b border-neutral-800/50">
         <div className="max-w-full mx-auto px-8 h-20 flex items-center justify-between">
           <a href="#">
-            <img src="/logo.png" alt="The Macraw Logo" className="h-8 w-auto object-contain" />
+            <img src="/logo.png" alt="The Macraw Logo" className="h-30 w-auto object-contain" />
           </a>
 
           <nav className="flex items-center gap-8 text-sm text-neutral-400 font-medium">
@@ -22,7 +22,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Static Logo & Internal Light Sweep */}
+      {/* Hero Section with Subtle Glow & Clean Light Sweep */}
       <main className="pt-20 flex flex-col items-center justify-center min-h-screen relative overflow-hidden z-10 px-4">
         <div className="relative z-10 flex flex-col items-center justify-center w-full">
           <div className="relative flex items-center justify-center">
@@ -31,10 +31,10 @@ export default function Home() {
             <img
               src="/macraw-logo.png"
               alt="Macraw Logo Base"
-              className="h-72 md:h-[520px] w-auto object-contain opacity-25 select-none pointer-events-none block"
+              className="h-72 md:h-[520px] w-auto object-contain opacity-20 select-none pointer-events-none block"
             />
 
-            {/* 2. Light Sweep Overlay (Masked strictly inside the logo shape) */}
+            {/* 2. Light Sweep Overlay (Subtle Gradient) */}
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
@@ -57,19 +57,19 @@ export default function Home() {
                 }}
                 className="absolute inset-0 w-full h-full"
                 style={{
-                  background: 'linear-gradient(90deg, transparent 20%, rgba(255,255,255,0.95) 50%, transparent 80%)',
+                  background: 'linear-gradient(90deg, transparent 20%, rgba(255,255,255,0.6) 50%, transparent 80%)',
                 }}
               />
             </div>
 
-            {/* 3. Final Settled Glowing Logo Pop */}
+            {/* 3. Final Settled Subtle Glowing Logo Pop */}
             <motion.img
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 0, 1] }}
               transition={{ duration: 1.4, ease: 'easeOut' }}
               src="/macraw-logo.png"
               alt="Macraw Logo Final Glow"
-              className="absolute inset-0 m-auto h-72 md:h-[520px] w-auto object-contain filter drop-shadow-[0_0_40px_rgba(255,255,255,0.75)] select-none pointer-events-none"
+              className="absolute inset-0 m-auto h-72 md:h-[520px] w-auto object-contain filter drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] select-none pointer-events-none"
             />
 
           </div>
