@@ -4,7 +4,10 @@ import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-neutral-800 selection:text-white">
+    <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-neutral-800 selection:text-white relative overflow-hidden">
+      {/* Grainy Dot Texture Background Overlay */}
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none z-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" />
+
       {/* Header / Navbar */}
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-neutral-950/80 border-b border-neutral-800/50">
         <div className="max-w-full mx-auto px-8 h-20 flex items-center justify-between">
@@ -21,34 +24,34 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Center Glowing Animated Logo */}
-      <main className="pt-32 pb-24 flex flex-col items-center justify-center min-h-[85vh] relative overflow-hidden">
+      {/* Hero Section with Larger Logo and Grainy Glow */}
+      <main className="pt-32 pb-24 flex flex-col items-center justify-center min-h-[90vh] relative overflow-hidden z-10">
         {/* Background Soft Radial Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/10 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-white/10 blur-[150px] rounded-full pointer-events-none" />
 
         <div className="relative z-10 flex flex-col items-center justify-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ scale: 1.08 }}
+            whileHover={{ scale: 1.06 }}
             className="relative group cursor-pointer"
           >
             {/* Logo Hover Glow Effect */}
-            <div className="absolute -inset-8 bg-gradient-to-r from-white/30 via-white/50 to-white/30 rounded-full blur-2xl opacity-40 group-hover:opacity-100 transition duration-700 ease-out animate-pulse" />
+            <div className="absolute -inset-10 bg-gradient-to-r from-white/20 via-white/40 to-white/20 rounded-full blur-3xl opacity-40 group-hover:opacity-90 transition duration-700 ease-out" />
             
-            {/* Macraw Center Logo Image */}
+            {/* Macraw Center Logo - Larger Size */}
             <img
               src="/macraw-logo.png"
               alt="Macraw Logo"
-              className="relative h-44 md:h-60 w-auto object-contain filter drop-shadow-[0_0_40px_rgba(255,255,255,0.35)] transition duration-500"
+              className="relative h-56 md:h-72 w-auto object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.4)] transition duration-500"
             />
           </motion.div>
         </div>
       </main>
 
       {/* Selected Works Section */}
-      <section id="work" className="px-8 md:px-16 py-24 max-w-7xl mx-auto w-full space-y-8">
+      <section id="work" className="px-8 md:px-16 py-24 max-w-7xl mx-auto w-full space-y-8 relative z-10">
         <div className="flex items-center justify-between border-b border-neutral-800 pb-4">
           <h2 className="text-2xl font-bold tracking-tight text-white">Selected Works</h2>
           <span className="text-xs text-neutral-500 font-mono">01 / BRANDING & VISUALS</span>
