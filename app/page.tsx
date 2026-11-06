@@ -52,7 +52,7 @@ export default function Home() {
                 initial={{ x: '-150%' }}
                 animate={{ x: '150%' }}
                 transition={{
-                  duration: 1.4,
+                  duration: 2.2,
                   ease: 'easeInOut',
                 }}
                 className="absolute inset-0 w-full h-full"
