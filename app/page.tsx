@@ -24,27 +24,24 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Large Center Glowing Logo Only */}
+      {/* Hero Section with Extra Large Logo and Hover-Only Glow */}
       <main className="pt-20 flex flex-col items-center justify-center min-h-screen relative overflow-hidden z-10 px-4">
-        {/* Soft Radial Back Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-white/10 blur-[150px] rounded-full pointer-events-none" />
-
         <div className="relative z-10 flex flex-col items-center justify-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.85, y: 20 }}
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ scale: 1.05 }}
-            className="relative group cursor-pointer"
+            whileHover={{ scale: 1.04 }}
+            className="relative group cursor-pointer flex items-center justify-center p-12"
           >
-            {/* Glowing Aura Behind Logo */}
-            <div className="absolute -inset-12 bg-gradient-to-r from-white/20 via-white/40 to-white/20 rounded-full blur-3xl opacity-40 group-hover:opacity-90 transition duration-700 ease-out" />
+            {/* Background Radial Glow - Appears ONLY on Hover behind the logo */}
+            <div className="absolute w-[500px] h-[500px] md:w-[700px] md:h-[700px] bg-white/15 blur-[140px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out pointer-events-none" />
             
-            {/* Large Center Logo */}
+            {/* Extra Large Center Logo */}
             <img
               src="/macraw-logo.png"
               alt="Macraw Logo"
-              className="relative h-64 md:h-96 w-auto object-contain filter drop-shadow-[0_0_60px_rgba(255,255,255,0.45)] transition duration-500"
+              className="relative h-72 md:h-[420px] w-auto object-contain filter drop-shadow-[0_0_40px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_0_80px_rgba(255,255,255,0.6)] transition-all duration-500"
             />
           </motion.div>
         </div>
