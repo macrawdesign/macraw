@@ -23,20 +23,10 @@ export default function Home() {
         {/* Hero Section */}
         
         <section className="space-y-6 max-w-3xl">
-          
+
           <div className="pt-4 flex items-center gap-4">
-            <a
-              href="#work"
-              className="px-6 py-3 bg-white text-neutral-950 font-semibold text-sm rounded-lg hover:bg-neutral-200 transition"
-            >
-              View Selected Work
-            </a>
-            <a
-              href="#contact"
-              className="px-6 py-3 bg-neutral-900 border border-neutral-800 text-white font-semibold text-sm rounded-lg hover:bg-neutral-800 transition"
-            >
-              Get in Touch
-            </a>
+            
+            
           </div>
         </section>
 
