@@ -1,12 +1,11 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
+  const [isInside, setIsInside] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
@@ -38,52 +37,36 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Vercel Masked Spotlight Glow */}
+      {/* Hero Section with Perfect Stacked Mask Spotlight */}
       <main className="pt-20 flex flex-col items-center justify-center min-h-screen relative overflow-hidden z-10 px-4">
         <div className="relative z-10 flex flex-col items-center justify-center w-full">
           <div
             ref={containerRef}
             onMouseMove={handleMouseMove}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            className="relative cursor-pointer py-24 px-16 flex items-center justify-center group"
+            onMouseEnter={() => setIsInside(true)}
+            onMouseLeave={() => setIsInside(false)}
+            className="relative cursor-pointer flex items-center justify-center"
           >
-            {/* Base Logo (Dimmed) */}
-            <motion.img
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            {/* Base Logo (Dimmed Background State) */}
+            <img
               src="/macraw-logo.png"
-              alt="Macraw Logo"
-              className="relative h-80 md:h-[580px] w-auto object-contain opacity-40 filter drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+              alt="Macraw Logo Base"
+              className="h-72 md:h-[520px] w-auto object-contain opacity-25 filter drop-shadow-[0_0_15px_rgba(255,255,255,0.05)] select-none pointer-events-none"
             />
 
-            {/* Glowing Layer Masked strictly to the Logo Shape */}
+            {/* Glowing Logo Overlay Masked strictly to Mouse Proximity */}
             <div
-              className="absolute inset-0 pointer-events-none flex items-center justify-center transition-opacity duration-300"
+              className="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300"
               style={{
-                opacity: isHovered ? 1 : 0,
-                WebkitMaskImage: 'url(/macraw-logo.png)',
-                maskImage: 'url(/macraw-logo.png)',
-                WebkitMaskRepeat: 'no-repeat',
-                maskRepeat: 'no-repeat',
-                WebkitMaskPosition: 'center',
-                maskPosition: 'center',
-                WebkitMaskSize: 'contain',
-                maskSize: 'contain',
+                opacity: isInside ? 1 : 0,
+                maskImage: `radial-gradient(220px circle at ${mousePos.x}px ${mousePos.y}px, black 0%, transparent 80%)`,
+                WebkitMaskImage: `radial-gradient(220px circle at ${mousePos.x}px ${mousePos.y}px, black 0%, transparent 80%)`,
               }}
             >
-              {/* Mouse-following Spotlight Gradient inside the logo mask */}
-              <div
-                className="absolute inset-0 w-full h-full"
-                style={{
-                  background: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255,255,255,1) 0%, rgba(255,255,255,0.4) 40%, transparent 80%)`,
-                }}
-              />
               <img
                 src="/macraw-logo.png"
                 alt="Macraw Logo Glow"
-                className="h-80 md:h-[580px] w-auto object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.9)]"
+                className="h-72 md:h-[520px] w-auto object-contain filter drop-shadow-[0_0_40px_rgba(255,255,255,0.9)] select-none pointer-events-none"
               />
             </div>
           </div>
