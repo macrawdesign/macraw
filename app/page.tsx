@@ -1,26 +1,11 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function Home() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isInside, setIsInside] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
-
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-neutral-800 selection:text-white relative overflow-hidden">
-      {/* Grainy Noise Dot Texture Background */}
-      <div className="absolute inset-0 opacity-[0.06] pointer-events-none z-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" />
-
       {/* Header / Navbar */}
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-neutral-950/80 border-b border-neutral-800/50">
         <div className="max-w-full mx-auto px-8 h-20 flex items-center justify-between">
@@ -37,38 +22,43 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Perfect Stacked Mask Spotlight */}
+      {/* Hero Section with Auto Left-to-Right Glow Sweep Animation */}
       <main className="pt-20 flex flex-col items-center justify-center min-h-screen relative overflow-hidden z-10 px-4">
         <div className="relative z-10 flex flex-col items-center justify-center w-full">
-          <div
-            ref={containerRef}
-            onMouseMove={handleMouseMove}
-            onMouseEnter={() => setIsInside(true)}
-            onMouseLeave={() => setIsInside(false)}
-            className="relative cursor-pointer flex items-center justify-center"
-          >
-            {/* Base Logo (Dimmed Background State) */}
-            <img
+          <div className="relative cursor-pointer flex items-center justify-center overflow-hidden p-8">
+            {/* Base Logo Layer */}
+            <motion.img
+              initial={{ opacity: 0.3 }}
+              animate={{ opacity: [0.3, 0.6, 1] }}
+              transition={{ duration: 2.5, ease: 'easeInOut' }}
               src="/macraw-logo.png"
               alt="Macraw Logo Base"
-              className="h-72 md:h-[520px] w-auto object-contain opacity-25 filter drop-shadow-[0_0_15px_rgba(255,255,255,0.05)] select-none pointer-events-none"
+              className="h-72 md:h-[520px] w-auto object-contain filter drop-shadow-[0_0_35px_rgba(255,255,255,0.6)] select-none pointer-events-none"
             />
 
-            {/* Glowing Logo Overlay Masked strictly to Mouse Proximity */}
-            <div
-              className="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300"
-              style={{
-                opacity: isInside ? 1 : 0,
-                maskImage: `radial-gradient(220px circle at ${mousePos.x}px ${mousePos.y}px, black 0%, transparent 80%)`,
-                WebkitMaskImage: `radial-gradient(220px circle at ${mousePos.x}px ${mousePos.y}px, black 0%, transparent 80%)`,
+            {/* Moving Light Beam Overlay (Left to Right Sweep) */}
+            <motion.div
+              initial={{ x: '-100%', opacity: 0 }}
+              animate={{ x: ['-100%', '100%'], opacity: [0, 1, 0] }}
+              transition={{
+                repeat: Infinity,
+                repeatDelay: 2,
+                duration: 2.2,
+                ease: 'easeInOut',
               }}
-            >
-              <img
-                src="/macraw-logo.png"
-                alt="Macraw Logo Glow"
-                className="h-72 md:h-[520px] w-auto object-contain filter drop-shadow-[0_0_40px_rgba(255,255,255,0.9)] select-none pointer-events-none"
-              />
-            </div>
+              className="absolute inset-0 pointer-events-none flex items-center justify-center"
+              style={{
+                background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.8) 50%, transparent 100%)',
+                WebkitMaskImage: 'url(/macraw-logo.png)',
+                maskImage: 'url(/macraw-logo.png)',
+                WebkitMaskRepeat: 'no-repeat',
+                maskRepeat: 'no-repeat',
+                WebkitMaskPosition: 'center',
+                maskPosition: 'center',
+                WebkitMaskSize: 'contain',
+                maskSize: 'contain',
+              }}
+            />
           </div>
         </div>
       </main>
