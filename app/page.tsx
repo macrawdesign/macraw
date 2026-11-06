@@ -22,8 +22,8 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Static Logo, Subtle Light Sweep, and Fade-Off Glow */}
-      <main className="pt-20 flex flex-col items-center justify-center min-h-screen relative overflow-hidden z-10 px-4">
+      {/* Hero Section - Logo eka udata ganna pt-10 saha justify-start use kala */}
+<main className="pt-10 md:pt-16 flex flex-col items-center justify-start min-h-[85vh] relative overflow-hidden z-10 px-4">
         <div className="relative z-10 flex flex-col items-center justify-center w-full">
           <div className="relative flex items-center justify-center">
             
