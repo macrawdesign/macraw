@@ -1,19 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function Home() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    setMousePosition({ x, y });
-  };
-
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-neutral-800 selection:text-white relative overflow-hidden">
       {/* Grainy Noise Texture Background */}
@@ -35,36 +25,24 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Proximity Edge Glow and Noise */}
+      {/* Hero Section with Logo Edge Glow */}
       <main className="pt-20 flex flex-col items-center justify-center min-h-screen relative overflow-hidden z-10 px-4">
         <div className="relative z-10 flex flex-col items-center justify-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            onMouseMove={handleMouseMove}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            className="relative group cursor-pointer p-16 flex items-center justify-center"
+            whileHover={{ scale: 1.04 }}
+            className="relative group cursor-pointer p-12 flex items-center justify-center"
           >
-            {/* Dynamic Proximity Edge Glow with Noise/Grain effect */}
-            <div 
-              className="absolute pointer-events-none rounded-full transition-opacity duration-500 blur-3xl"
-              style={{
-                width: '450px',
-                height: '450px',
-                background: 'radial-gradient(circle, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.05) 50%, transparent 80%)',
-                left: `${mousePosition.x - 225}px`,
-                top: `${mousePosition.y - 225}px`,
-                opacity: isHovered ? 1 : 0,
-              }}
-            />
-
-            {/* Extra Large Center Logo */}
+            {/* Grainy Glow hugging directly around the logo edges on hover */}
+            <div className="absolute inset-0 bg-white/25 blur-3xl rounded-full opacity-0 group-hover:opacity-90 transition-opacity duration-500 pointer-events-none" />
+            
+            {/* Extra Large Center Logo with Precision Edge Drop Shadow */}
             <img
               src="/macraw-logo.png"
               alt="Macraw Logo"
-              className="relative h-72 md:h-[420px] w-auto object-contain filter drop-shadow-[0_0_40px_rgba(255,255,255,0.25)] transition-all duration-500"
+              className="relative h-72 md:h-[420px] w-auto object-contain filter drop-shadow-[0_0_10px_rgba(255,255,255,0.1)] group-hover:drop-shadow-[0_0_35px_rgba(255,255,255,0.85)] transition-all duration-500"
             />
           </motion.div>
         </div>
