@@ -22,29 +22,29 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Perfect Aligned Left-to-Right Sweep */}
+      {/* Hero Section with Perfect Single Left-to-Right Light Sweep */}
       <main className="pt-20 flex flex-col items-center justify-center min-h-screen relative overflow-hidden z-10 px-4">
         <div className="relative z-10 flex flex-col items-center justify-center w-full">
-          <div className="relative inline-flex items-center justify-center p-4">
+          <div className="relative inline-flex items-center justify-center">
             
-            {/* Base Dimmed Logo */}
+            {/* 1. Base Dimmed Logo */}
             <img
               src="/macraw-logo.png"
               alt="Macraw Logo Base"
-              className="h-72 md:h-[520px] w-auto object-contain opacity-30 select-none pointer-events-none"
+              className="h-72 md:h-[520px] w-auto object-contain opacity-25 select-none pointer-events-none"
             />
 
-            {/* Light Sweep Overlay (Runs ONCE from Left to Right) */}
+            {/* 2. Light Sweep Overlay (Runs ONLY ONCE from Left to Right) */}
             <motion.div
               initial={{ x: '-100%', opacity: 0 }}
               animate={{ x: ['-100%', '100%'], opacity: [0, 1, 1, 0] }}
               transition={{
-                duration: 1.4,
+                duration: 1.5,
                 ease: 'easeInOut',
               }}
-              className="absolute inset-0 w-full h-full pointer-events-none"
+              className="absolute inset-0 pointer-events-none"
               style={{
-                background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.95) 50%, transparent 100%)',
+                background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.9) 50%, transparent 100%)',
                 WebkitMaskImage: 'url(/macraw-logo.png)',
                 maskImage: 'url(/macraw-logo.png)',
                 WebkitMaskRepeat: 'no-repeat',
@@ -56,14 +56,14 @@ export default function Home() {
               }}
             />
 
-            {/* Final Settled Bright Logo Pop */}
+            {/* 3. Final Settled Bright Glowing Logo Pop */}
             <motion.img
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 0, 1] }}
-              transition={{ duration: 1.4, ease: 'easeOut' }}
+              transition={{ duration: 1.5, ease: 'easeOut' }}
               src="/macraw-logo.png"
               alt="Macraw Logo Final Glow"
-              className="absolute inset-0 h-72 md:h-[520px] w-auto object-contain filter drop-shadow-[0_0_35px_rgba(255,255,255,0.7)] select-none pointer-events-none"
+              className="absolute inset-0 h-72 md:h-[520px] w-auto object-contain filter drop-shadow-[0_0_40px_rgba(255,255,255,0.75)] select-none pointer-events-none"
             />
 
           </div>
