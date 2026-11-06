@@ -34,19 +34,18 @@ export default function Home() {
               className="h-80 md:h-[620px] w-auto object-contain opacity-80 select-none pointer-events-none block"
             />
 
-            {/* 2. Light Sweep Overlay (Subtle Gradient) */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                WebkitMaskImage: 'url(/macraw-logo.png)',
-                maskImage: 'url(/macraw-logo.png)',
-                WebkitMaskRepeat: 'no-repeat',
-                maskRepeat: 'no-repeat',
-                WebkitMaskPosition: 'center',
-                maskPosition: 'center',
-                WebkitMaskSize: 'contain',
-                maskSize: 'contain',
-              }}
+            {/* 2. Light Sweep Overlay (Brightness wadi karala) */}
+<motion.div
+  initial={{ x: '-150%' }}
+  animate={{ x: '150%' }}
+  transition={{
+    duration: 2.2,
+    ease: 'easeInOut',
+  }}
+  className="absolute inset-0 w-full h-full"
+  style={{
+    background: 'linear-gradient(90deg, transparent 15%, rgba(255,255,255,0.85) 50%, transparent 85%)',
+  }}
             >
               <motion.div
                 initial={{ x: '-150%' }}
