@@ -23,9 +23,7 @@ export default function Home() {
         {/* Hero Section */}
         
         <section className="space-y-6 max-w-3xl">
-          <p className="text-lg text-neutral-400 font-normal leading-relaxed">
-            Welcome to <span className="text-white font-medium">The Macraw</span>. Focused on high-impact visual design, dynamic branding, and precision media editing.
-          </p>
+          
           <div className="pt-4 flex items-center gap-4">
             <a
               href="#work"
