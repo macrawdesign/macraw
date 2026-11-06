@@ -15,18 +15,18 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "The Macraw",
   description: "Visual Identity & Creative Portfolio",
-  icons: {
-    icon: '/logo.png', // /Users/kavingamage/Documents/themacraw/public/logo.png
-  },
-}
+};
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
