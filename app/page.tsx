@@ -23,9 +23,27 @@ export default function Home() {
         {/* Hero Section */}
         
         <section className="space-y-6 max-w-3xl">
+          <div className="relative z-10 flex flex-col items-center justify-center my-20">
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+    animate={{ opacity: 1, scale: 1, y: 0 }}
+    transition={{ duration: 1, ease: 'easeOut' }}
+    whileHover={{ scale: 1.05 }}
+    className="relative group cursor-pointer"
+  >
+    {/* Logo Hover Glow Effect */}
+    <div className="absolute -inset-4 bg-gradient-to-r from-white/20 via-white/40 to-white/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-700 ease-out" />
+    
+    {/* Macraw Center Logo */}
+    <img
+      src="/Macraw Logo.png"
+      alt="Macraw Logo"
+      className="relative h-40 md:h-56 w-auto object-contain filter drop-shadow-[0_0_30px_rgba(255,255,255,0.25)] transition duration-500"
+    />
+  </motion.div>
+</div>
 
           <div className="pt-4 flex items-center gap-4">
-            
             
           </div>
         </section>
