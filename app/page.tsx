@@ -21,9 +21,6 @@ export default function Home() {
       <main className="max-w-full mx-auto px-6 pt-36 pb-24 space-y-32">
         {/* Hero Section */}
         <section className="space-y-6 max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
-            Crafting bold visual experiences and aesthetic brand spaces.
-          </h1>
           <p className="text-lg text-neutral-400 font-normal leading-relaxed">
             Welcome to <span className="text-white font-medium">The Macraw</span>. Focused on high-impact visual design, dynamic branding, and precision media editing.
           </p>
