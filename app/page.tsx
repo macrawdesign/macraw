@@ -8,7 +8,7 @@ export default function Home() {
     <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-neutral-800 selection:text-white">
       {/* Header / Navbar */}
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-neutral-950/80 border-b border-neutral-800/50">
-        <div className="max-w-full mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-full mx-auto px-6 h-40 flex items-center justify-between">
           <a href="#" className="flex items-center">
             <img src="/logo.png" alt="The Macraw Logo" className="h-10 w-auto" />
           </a>
