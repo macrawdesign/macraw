@@ -38,7 +38,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Precise Mouse-Proximity Grainy Glow */}
+      {/* Hero Section with Vercel Mouse-Tracking Spotlight Glow */}
       <main className="pt-20 flex flex-col items-center justify-center min-h-screen relative overflow-hidden z-10 px-4">
         <div className="relative z-10 flex flex-col items-center justify-center w-full">
           <div
@@ -46,17 +46,17 @@ export default function Home() {
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="relative cursor-pointer p-10 md:p-20 flex items-center justify-center group"
+            className="relative cursor-pointer py-24 px-16 flex items-center justify-center group"
           >
-            {/* Dynamic Grainy Light Spotlight following mouse near edges */}
+            {/* Mouse-following grainy spotlight glow */}
             <div
-              className="absolute pointer-events-none rounded-full blur-2xl transition-opacity duration-300 mix-blend-screen"
+              className="absolute pointer-events-none rounded-full blur-3xl transition-opacity duration-300 mix-blend-screen"
               style={{
-                width: '380px',
-                height: '380px',
+                width: '350px',
+                height: '350px',
                 background: 'radial-gradient(circle, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.12) 55%, transparent 80%)',
-                left: `${mousePos.x - 190}px`,
-                top: `${mousePos.y - 190}px`,
+                left: `${mousePos.x - 175}px`,
+                top: `${mousePos.y - 175}px`,
                 opacity: isHovered ? 1 : 0,
               }}
             />
@@ -68,7 +68,7 @@ export default function Home() {
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               src="/macraw-logo.png"
               alt="Macraw Logo"
-              className="relative h-80 md:h-[580px] w-auto object-contain filter drop-shadow-[0_0_60px_rgba(255,255,255,0.2)] transition-all duration-300"
+              className="relative h-80 md:h-[580px] w-auto object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.22)] transition-all duration-300"
             />
           </div>
         </div>
