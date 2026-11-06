@@ -18,7 +18,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-6 pt-36 pb-24 space-y-32">
+      <main className="max-w-7xl mx-auto px-6 pt-36 pb-24 space-y-32">
         {/* Hero Section */}
         <section className="space-y-6 max-w-3xl">
           <div className="inline-block px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-400 font-mono tracking-wide">
