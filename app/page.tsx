@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export default function Home() {
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-neutral-800 selection:text-white relative overflow-hidden">
-      {/* Grainy Dot Texture Background Overlay */}
+      {/* Grainy Dot Texture Background */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none z-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" />
 
       {/* Header / Navbar */}
@@ -24,27 +24,27 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Larger Logo and Grainy Glow */}
-      <main className="pt-32 pb-24 flex flex-col items-center justify-center min-h-[90vh] relative overflow-hidden z-10">
-        {/* Background Soft Radial Glow */}
+      {/* Hero Section with Large Center Glowing Logo Only */}
+      <main className="pt-20 flex flex-col items-center justify-center min-h-screen relative overflow-hidden z-10 px-4">
+        {/* Soft Radial Back Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-white/10 blur-[150px] rounded-full pointer-events-none" />
 
         <div className="relative z-10 flex flex-col items-center justify-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ scale: 1.06 }}
+            initial={{ opacity: 0, scale: 0.85, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ scale: 1.05 }}
             className="relative group cursor-pointer"
           >
-            {/* Logo Hover Glow Effect */}
-            <div className="absolute -inset-10 bg-gradient-to-r from-white/20 via-white/40 to-white/20 rounded-full blur-3xl opacity-40 group-hover:opacity-90 transition duration-700 ease-out" />
+            {/* Glowing Aura Behind Logo */}
+            <div className="absolute -inset-12 bg-gradient-to-r from-white/20 via-white/40 to-white/20 rounded-full blur-3xl opacity-40 group-hover:opacity-90 transition duration-700 ease-out" />
             
-            {/* Macraw Center Logo - Larger Size */}
+            {/* Large Center Logo */}
             <img
               src="/macraw-logo.png"
               alt="Macraw Logo"
-              className="relative h-56 md:h-72 w-auto object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.4)] transition duration-500"
+              className="relative h-64 md:h-96 w-auto object-contain filter drop-shadow-[0_0_60px_rgba(255,255,255,0.45)] transition duration-500"
             />
           </motion.div>
         </div>
