@@ -22,20 +22,20 @@ export default function Home() {
       </header>
 
       {/* Hero Section with Centered Interactive Logo */}
-      <main className="w-full mx-auto px-6 pt-36 pb-24 space-y-32">
+      <main className="flex flex-col items-center justify-center min-h-[60vh]">
         <section className="flex flex-col items-center justify-center min-h-[60vh]">
-          <motion.div
+          <motion.img
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="cursor-pointer p-8 rounded-3xl bg-neutral-900/40 backdrop-blur-md border border-white/10 shadow-2xl flex items-center justify-center"
+            className="h-24 md:h-32 w-auto object-contain cursor-pointer"
           >
-            <img 
+            <img
               src="/Macraw Logo.png" 
               alt="The Macraw Logo" 
               className="h-24 md:h-32 w-auto object-contain mx-auto" 
             />
-          </motion.div>
+          </motion.img>
         </section>
 
         {/* Selected Works Section */}
