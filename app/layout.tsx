@@ -15,7 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "The Macraw",
   description: "Visual Identity & Creative Portfolio",
-};
+  icons: {
+    icon: '/logo.png', // /Users/kavingamage/Documents/themacraw/public/logo.png
+  },
+}
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
