@@ -31,7 +31,7 @@ export default function Home() {
             <img
               src="/macraw-logo.png"
               alt="Macraw Logo Base"
-              className="h-72 md:h-[520px] w-auto object-contain opacity-80 select-none pointer-events-none block"
+              className="h-100 md:h-[520px] w-auto object-contain opacity-80 select-none pointer-events-none block"
             />
 
             {/* 2. Light Sweep Overlay (Subtle Gradient) */}
