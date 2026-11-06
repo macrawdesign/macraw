@@ -8,7 +8,6 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
           <a href="#" className="flex items-center">
   <img src="/logo.png" alt="The Macraw Logo" className="h-10 w-auto" />
-
 </a>
 
           <nav className="flex items-center gap-8 text-sm text-neutral-400 font-medium">
