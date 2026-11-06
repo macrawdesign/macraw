@@ -1,13 +1,26 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Home() {
+  const divRef = useRef<HTMLDivElement>(null);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!divRef.current) return;
+    const rect = divRef.current.getBoundingClientRect();
+    setCursorPos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-neutral-800 selection:text-white relative overflow-hidden">
-      {/* Grainy Noise Texture Background */}
-      <div className="absolute inset-0 opacity-[0.04] pointer-events-none z-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" />
+      {/* Grainy Noise Dot Texture Background */}
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none z-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]" />
 
       {/* Header / Navbar */}
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-neutral-950/80 border-b border-neutral-800/50">
@@ -25,26 +38,39 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Logo Edge Glow */}
+      {/* Hero Section with Directional Mouse-Tracking Edge Glow */}
       <main className="pt-20 flex flex-col items-center justify-center min-h-screen relative overflow-hidden z-10 px-4">
         <div className="relative z-10 flex flex-col items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ scale: 1.04 }}
-            className="relative group cursor-pointer p-12 flex items-center justify-center"
+          <div
+            ref={divRef}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className="relative cursor-pointer p-16 flex items-center justify-center group"
           >
-            {/* Grainy Glow hugging directly around the logo edges on hover */}
-            <div className="absolute inset-0 bg-white/25 blur-3xl rounded-full opacity-0 group-hover:opacity-90 transition-opacity duration-500 pointer-events-none" />
-            
-            {/* Extra Large Center Logo with Precision Edge Drop Shadow */}
-            <img
+            {/* Directional Grainy Light Beam following mouse proximity to logo edges */}
+            <div
+              className="absolute pointer-events-none rounded-full blur-2xl transition-opacity duration-500"
+              style={{
+                width: '320px',
+                height: '320px',
+                background: 'radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.08) 60%, transparent 85%)',
+                left: `${cursorPos.x - 160}px`,
+                top: `${cursorPos.y - 160}px`,
+                opacity: isHovered ? 1 : 0,
+              }}
+            />
+
+            {/* Extra Large Center Logo matching Vercel Aesthetic */}
+            <motion.img
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               src="/macraw-logo.png"
               alt="Macraw Logo"
-              className="relative h-72 md:h-[420px] w-auto object-contain filter drop-shadow-[0_0_10px_rgba(255,255,255,0.1)] group-hover:drop-shadow-[0_0_35px_rgba(255,255,255,0.85)] transition-all duration-500"
+              className="relative h-72 md:h-[420px] w-auto object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.25)] transition-all duration-300"
             />
-          </motion.div>
+          </div>
         </div>
       </main>
 
