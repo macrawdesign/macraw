@@ -21,7 +21,6 @@ export default function Home() {
 
       <main className="max-w-full mx-auto px-6 pt-36 pb-24 space-y-32">
         {/* Hero Section */}
-    
           <div className="pt-4 flex items-center gap-4">
             <a
               href="#work"
