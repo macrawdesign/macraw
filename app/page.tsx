@@ -62,16 +62,6 @@ export default function Home() {
               />
             </div>
 
-            {/* 3. Final Settled Glow Pop & Fade Off */}
-            <motion.img
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0, 1, 0] }}
-              transition={{ duration: 2.2, times: [0, 0.5, 0.7, 1], ease: 'easeInOut' }}
-              src="/macraw-logo.png"
-              alt="Macraw Logo Final Glow"
-              className="absolute inset-0 m-auto h-72 md:h-[520px] w-auto object-contain filter drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] select-none pointer-events-none"
-            />
-
           </div>
         </div>
       </main>
