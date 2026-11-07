@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Syne } from "next/font/google"; // 1. Font eka import kala
+import { Geist, Geist_Mono, Syne } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,7 +12,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// 2. Aluth Font eka define kala
 const syne = Syne({
   variable: "--font-syne",
   subsets: ["latin"],
@@ -30,8 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* 3. body class ekata variable eka damma */}
-      <body className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} h-full antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable}${syne.variable} h-full antialiased`}>
         {children}
       </body>
     </html>
