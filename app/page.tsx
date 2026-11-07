@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -13,12 +14,13 @@ export default function Home() {
             <img src="/logo.png" alt="The Macraw Logo" className="h-30 w-auto object-contain" />
           </a>
 
-         <nav className="flex items-center gap-8 text-sm text-neutral-400 font-medium">
-  <a href="/home" className="hover:text-white transition">Home</a>
-  <a href="/work" className="hover:text-white transition">Work</a>
-  <a href="/about" className="hover:text-white transition">About</a>
-  <a href="/contact" className="hover:text-white transition">Contact</a>
+   <nav className="flex items-center gap-8 text-sm text-neutral-400 font-medium">
+  <Link href="/home" className="hover:text-white transition">Home</Link>
+  <Link href="/work" className="hover:text-white transition">Work</Link>
+  <Link href="/about" className="hover:text-white transition">About</Link>
+  <Link href="/contact" className="hover:text-white transition">Contact</Link>
 </nav>
+
 
         </div>
       </header>
