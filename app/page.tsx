@@ -14,10 +14,10 @@ export default function Home() {
           </a>
 
           <nav className="flex items-center gap-8 text-sm text-neutral-400 font-medium font-syne">
-            <a href="home" className="hover:text-white transition">Home</a>
-            <a href="work" className="hover:text-white transition">Work</a>
-            <a href="about" className="hover:text-white transition">About</a>
-            <a href="contact" className="hover:text-white transition">Contact</a>
+            <a href="/home" className="hover:text-white transition">Home</a>
+            <a href="/work" className="hover:text-white transition">Work</a>
+            <a href="/about" className="hover:text-white transition">About</a>
+            <a href="/contact" className="hover:text-white transition">Contact</a>
           </nav>
         </div>
       </header>
